@@ -1,0 +1,23 @@
+name: Run Python Script
+
+on:
+  workflow_dispatch:  # adds a "Run workflow" button in the Actions tab
+
+jobs:
+  run-script:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.10'  # You can change this to another version if needed
+
+      - name: Install dependencies
+        run: pip install matplotlib numpy  # Add more packages here if needed
+
+      - name: Run your script
+        run: python scripts/script1.py
